@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RotaPadelMobile.Pages.TelaInicial"
+             Title="TelaInicial"
+             BackgroundColor="#C1EE0F">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header com logo -->
+        <Border Grid.Row="0" 
+                BackgroundColor="White" 
+                Padding="20,15">
+            <Label Text="ROTA PADEL" 
+                   FontSize="20" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"/>
+        </Border>
+
+        <!-- Conteúdo central -->
+        <VerticalStackLayout Grid.Row="1" 
+                            VerticalOptions="Start" 
+                            HorizontalOptions="Fill"
+                            Spacing="20"
+                            Padding="20,40,20,0">
+
+            <!-- Texto "BE A PRO" alinhado à esquerda -->
+            <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,0,20,0">
+                <Label Text="BE A" 
+                   FontSize="70" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   LineHeight="0.9"
+                   Margin="-5,-30,0,0"/>
+                <Label Text="PRO" 
+                   FontSize="70" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   LineHeight="0.9"
+                   Margin="25,0,0,0"/>
+            </VerticalStackLayout>
+
+            <!-- Imagem do jogador -->
+            <Border WidthRequest="300" 
+                    HeightRequest="300"
+                    StrokeThickness="0"
+                    BackgroundColor="White"
+                    HorizontalOptions="Start"
+                    Margin="0,-20,0,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15"/>
+                </Border.StrokeShape>
+                <Image Source="jogador.png" 
+                       Aspect="AspectFill"/>
+            </Border>
+
+        </VerticalStackLayout>
+
+        <!-- Botões na parte inferior -->
+        <VerticalStackLayout Grid.Row="2" 
+                            Margin="40,0,40,60"
+                            Spacing="25">
+
+            <!-- Botão Login -->
+            <Button Text="Login"
+                    BackgroundColor="#0636D4"
+                    TextColor="White"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="27"
+                    FontFamily="InstrumentSans"
+                    Clicked="Button_Login"/>
+
+            <!-- Botão Cadastre-se -->
+            <Button Text="Cadastre-se"
+                    BackgroundColor="#0636D4"
+                    TextColor="White"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="27"
+                    FontFamily="InstrumentSans"
+                    Clicked="Button_Cadastro"/>
+            
+
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
