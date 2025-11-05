@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using RotaPadelMobile.Services;
 
 namespace RotaPadelMobile
 {
@@ -17,8 +18,11 @@ namespace RotaPadelMobile
                     fonts.AddFont("InstrumentSans-Italic.ttf", "InstrumentSansItalic");
                 });
 
+            //DatabaseService
+            builder.Services.AddSingleton<DatabaseService>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
