@@ -8,20 +8,24 @@
     <ScrollView>
         <VerticalStackLayout Spacing="0">
 
-            <!-- Banner superior com menos altura -->
-            <Grid HeightRequest="160">
-                <Label 
-                    Text="BE A PRO"
-                    FontSize="56"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    TextColor="Black"
-                    Opacity="0.9"
-                    LineHeight="0.8" />
-            </Grid>
+            <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,0,20,0">
+                <Label Text="BE A" 
+                   FontSize="70" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   LineHeight="0.9"
+                   Margin="-5,-30,0,0"/>
+                <Label Text="PRO" 
+                   FontSize="70" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   LineHeight="0.9"
+                   Margin="25,0,0,0"/>
+            </VerticalStackLayout>
 
-            <!-- Card branco -->
+            
             <Frame Margin="20,-40,20,0"
                    CornerRadius="36"
                    HasShadow="True"
@@ -37,7 +41,7 @@
 
                     <VerticalStackLayout Spacing="16">
 
-                        <!-- Nome -->
+                        
                         <Label Text="Nome" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
                         <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
                             <Entry Placeholder="Digite seu nome" 
@@ -45,7 +49,7 @@
                                    TextColor="Black" />
                         </Border>
 
-                        <!-- Email -->
+                        
                         <Label Text="Email" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
                         <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
                             <Entry Placeholder="Digite seu Email" 
@@ -54,7 +58,7 @@
                                    TextColor="Black"/>
                         </Border>
 
-                        <!-- CPF -->
+                        
                         <Label Text="CPF" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
                         <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
                             <Entry Placeholder="Digite seu CPF" 
@@ -63,7 +67,7 @@
                                    TextColor="Black"/>
                         </Border>
 
-                        <!-- Senha -->
+                        
                         <Label Text="Senha" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
                         <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
                             <Entry Placeholder="Digite sua senha" 
@@ -72,7 +76,7 @@
                                    TextColor="Black"/>
                         </Border>
 
-                        <!-- Repetir senha -->
+                        
                         <Label Text="Confirmar senha" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
                         <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
                             <Entry Placeholder="Repita sua senha" 
@@ -83,7 +87,7 @@
 
                     </VerticalStackLayout>
 
-                    <!-- Botão -->
+                    
                     <Button Text="Cadastrar"
                             BackgroundColor="#2962FF"
                             TextColor="White"
@@ -91,14 +95,15 @@
                             HeightRequest="48"
                             FontAttributes="Bold"
                             HorizontalOptions="Fill"
-                            Margin="0,8,0,0"/>
+                            Margin="0,8,0,0"
+                            />
 
-                    <!-- Login -->
+                    
                     <HorizontalStackLayout HorizontalOptions="Center">
                         <Label Text="Já possui cadastro? " TextColor="Gray" />
                         <Label Text="Login" TextColor="#2962FF" FontAttributes="Bold">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped=""/>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                             </Label.GestureRecognizers>
                         </Label>
                     </HorizontalStackLayout>
