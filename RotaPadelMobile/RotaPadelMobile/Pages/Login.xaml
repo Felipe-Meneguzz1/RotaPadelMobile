@@ -27,7 +27,7 @@
             <VerticalStackLayout Padding="20" Spacing="30">
 
                 <!-- Texto "BE A PRO" -->
-                <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,0,20,0">
+                <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,20,20,0">
                     <Label Text="BE A" 
                        FontSize="70" 
                        FontAttributes="Bold"
