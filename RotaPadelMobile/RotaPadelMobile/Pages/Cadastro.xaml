@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RotaPadelMobile.Pages.Cadastro"
+             Title="Cadastro">
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label 
+        Text="Esta é a PÁGINA 3!"
+        TextColor="White"
+        FontSize="24"
+        FontAttributes="Bold"
+        Margin="20"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+
+
+            <Border BackgroundColor="White" 
+                StrokeShape="RoundRectangle 16"
+            <VerticalStackLayout Spacing="15">
+
+                >
+                <Label
+                Text="Cadastro" 
+                TextColor="Black"
+                FontSize="40"
+                FontAttributes="Bold"
+                Margin="20"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+                <Grid RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*" RowSpacing="10" x:Name="GridCadastro">
+                    <Label Text="Nome:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
+                    <Entry Placeholder="Digite seu nome" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
+                    <Label Text="Email:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
+                    <Entry Placeholder="Digite seu email" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
+                    <Label Text="CPF:" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
+                    <Entry Placeholder="Digite seu CPF" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
+                    <Label Text="Senha:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
+                    <Entry Placeholder="Digite sua senha" IsPassword="True" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
+                    <Label Text="Confirme a Senha:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
+                    <Entry Placeholder="Confirme sua senha" IsPassword="True" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
+                    <Button Text="Cadastrar" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="10,0"/>
+
+                </Grid>
+        </VerticalStackLayout>
+        </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
