@@ -2,48 +2,114 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="RotaPadelMobile.Pages.Cadastro"
-             Title="Cadastro">
+             Title="Rota Padel"
+             BackgroundColor="GreenYellow">
+
     <ScrollView>
-        <VerticalStackLayout>
-            <Label 
-                Text="Esta é a PÁGINA 3!"
-                TextColor="White"
-                FontSize="24"
-                FontAttributes="Bold"
-                Margin="20"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+        <VerticalStackLayout Spacing="0">
 
-            <Border BackgroundColor="White" 
-                    StrokeShape="RoundRectangle 16"
-                    Padding="20"
-                    Margin="20">
-                <VerticalStackLayout Spacing="15">
+            <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,0,20,0">
+                <Label Text="BE A" 
+                   FontSize="70" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   LineHeight="0.9"
+                   Margin="-5,-30,0,0"/>
+                <Label Text="PRO" 
+                   FontSize="70" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   LineHeight="0.9"
+                   Margin="25,0,0,0"/>
+            </VerticalStackLayout>
 
-                    <Label
-                        Text="Cadastro" 
-                        TextColor="Black"
-                        FontSize="40"
-                        FontAttributes="Bold"
-                        Margin="20"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center" />
+            
+            <Frame Margin="20,-40,20,0"
+                   CornerRadius="36"
+                   HasShadow="True"
+                   BackgroundColor="White"
+                   Padding="24">
 
-                    <Grid RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*" RowSpacing="10" x:Name="GridCadastro">
-                        <Label Text="Nome:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
-                        <Entry Placeholder="Digite seu nome" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
-                        <Label Text="Email:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
-                        <Entry Placeholder="Digite seu email" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
-                        <Label Text="CPF:" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
-                        <Entry Placeholder="Digite seu CPF" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
-                        <Label Text="Senha:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
-                        <Entry Placeholder="Digite sua senha" IsPassword="True" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
-                        <Label Text="Confirme a Senha:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,0"/>
-                        <Entry Placeholder="Confirme sua senha" IsPassword="True" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Margin="10,0"/>
-                        <Button Text="Cadastrar" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="10,0"/>
-                    </Grid>
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Cadastro" 
+                           FontSize="26" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" />
+
+                    <VerticalStackLayout Spacing="16">
+
+                        
+                        <Label Text="Nome" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
+                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
+                            <Entry Placeholder="Digite seu nome" 
+                                   BackgroundColor="Transparent"
+                                   TextColor="Black" />
+                        </Border>
+
+                        
+                        <Label Text="Email" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
+                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
+                            <Entry Placeholder="Digite seu Email" 
+                                   BackgroundColor="Transparent" 
+                                   Keyboard="Email"
+                                   TextColor="Black"/>
+                        </Border>
+
+                        
+                        <Label Text="CPF" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
+                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
+                            <Entry Placeholder="Digite seu CPF" 
+                                   BackgroundColor="Transparent"
+                                   Keyboard="Telephone"
+                                   TextColor="Black"/>
+                        </Border>
+
+                        
+                        <Label Text="Senha" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
+                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
+                            <Entry Placeholder="Digite sua senha" 
+                                   IsPassword="True" 
+                                   BackgroundColor="Transparent"
+                                   TextColor="Black"/>
+                        </Border>
+
+                        
+                        <Label Text="Confirmar senha" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
+                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
+                            <Entry Placeholder="Repita sua senha" 
+                                   IsPassword="True"
+                                   BackgroundColor="Transparent"
+                                   TextColor="Black"/>
+                        </Border>
+
+                    </VerticalStackLayout>
+
+                    
+                    <Button Text="Cadastrar"
+                            BackgroundColor="#2962FF"
+                            TextColor="White"
+                            CornerRadius="25"
+                            HeightRequest="48"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Fill"
+                            Margin="0,8,0,0"
+                            />
+
+                    
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label Text="Já possui cadastro? " TextColor="Gray" />
+                        <Label Text="Login" TextColor="#2962FF" FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+
                 </VerticalStackLayout>
-            </Border>
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
