@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RotaPadelMobile.Pages.Agendamento"
+             Title="Agendamento"
+             BackgroundColor="#C1EE0F">
+    <VerticalStackLayout>
+        <Label Text="Agendamento"
+               Padding="15"
+               FontSize="36"
+               FontAttributes="Bold"
+               TextColor="Black"
+               FontFamily="InstrumentSans"
+               HorizontalOptions="Center"/>
+
+        <Border BackgroundColor="White"
+                Padding="25"
+                Margin="0,20,0,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25"/>
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Selecionar quadra"
+                       FontSize="18"
+                       FontFamily="InstrumentSans"/>
+
+                <Picker x:Name="pickerQuadra"
+                        Title="Quadra"
+                        BackgroundColor="White"
+                        FontSize="16"
+                        TextColor="Black"
+                        Margin="0,0,0,10"
+                        />
+
+                <Label Text="Selecione a Data Desejada"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       Margin="0,10,0,5"/>
+
+                <DatePicker x:Name="pickerData"
+                        Format="dd/MM/yyyy"
+                        BackgroundColor="White"
+                        TextColor="Black"
+                        Margin="0,0,0,10"/>
+
+                <Border BackgroundColor="#E7F3FF"
+                        Padding="25"
+                        Margin="0,20,0,0">
+                    <VerticalStackLayout>
+                        <Label Text="Legenda dos horários"
+                               TextColor="#17A1FA"
+                               FontSize="16"/>
+                    </VerticalStackLayout>
+                    
+                </Border>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
