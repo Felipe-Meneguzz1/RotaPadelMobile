@@ -2,105 +2,184 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="RotaPadelMobile.Pages.Cadastro"
-             Title="Rota Padel"
-             BackgroundColor="GreenYellow">
-    <ScrollView>
-        <VerticalStackLayout Spacing="0">
-            <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,0,20,0">
-                <Label Text="BE A" 
-                   FontSize="70" 
+             Title="Cadastro"
+             BackgroundColor="#C1EE0F">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header com logo -->
+        <Border Grid.Row="0" 
+                BackgroundColor="White" 
+                Padding="20,15">
+            <Label Text="ROTA PADEL" 
+                   FontSize="20" 
                    FontAttributes="Bold"
                    TextColor="Black"
-                   FontFamily="InstrumentSans"
-                   LineHeight="0.9"
-                   Margin="-5,-30,0,0"/>
-                <Label Text="PRO" 
-                   FontSize="70" 
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   FontFamily="InstrumentSans"
-                   LineHeight="0.9"
-                   Margin="25,0,0,0"/>
-            </VerticalStackLayout>
+                   FontFamily="InstrumentSans"/>
+        </Border>
 
-            <Frame Margin="20,-40,20,0"
-                   CornerRadius="36"
-                   HasShadow="True"
-                   BackgroundColor="White"
-                   Padding="24">
-                <VerticalStackLayout Spacing="12">
-                    <Label Text="Cadastro" 
-                           FontSize="26" 
-                           FontAttributes="Bold" 
-                           HorizontalOptions="Center" />
-                    <VerticalStackLayout Spacing="16">
+        <!-- Conteúdo -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="30">
 
-                        <Label Text="Nome" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
-                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
-                            <Entry x:Name="EntryNome"
-                                   Placeholder="Digite seu nome" 
-                                   BackgroundColor="Transparent"
-                                   TextColor="Black" />
-                        </Border>
-
-                        <Label Text="Email" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
-                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
-                            <Entry x:Name="EntryEmail"
-                                   Placeholder="Digite seu Email" 
-                                   BackgroundColor="Transparent" 
-                                   Keyboard="Email"
-                                   TextColor="Black"/>
-                        </Border>
-
-                        <Label Text="CPF" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
-                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
-                            <Entry x:Name="EntryCPF"
-                                   Placeholder="Digite seu CPF" 
-                                   BackgroundColor="Transparent"
-                                   Keyboard="Telephone"
-                                   TextColor="Black"
-                                   MaxLength="11"/>
-                        </Border>
-
-                        <Label Text="Senha" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
-                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
-                            <Entry x:Name="EntrySenha"
-                                   Placeholder="Digite sua senha" 
-                                   IsPassword="True" 
-                                   BackgroundColor="Transparent"
-                                   TextColor="Black"/>
-                        </Border>
-
-                        <Label Text="Confirmar senha" TextColor="Black" FontAttributes="Bold" Margin="4,0,0,0"/>
-                        <Border BackgroundColor="#F2F2F2" StrokeShape="RoundRectangle 22" Padding="12">
-                            <Entry x:Name="EntryConfirmarSenha"
-                                   Placeholder="Repita sua senha" 
-                                   IsPassword="True"
-                                   BackgroundColor="Transparent"
-                                   TextColor="Black"/>
-                        </Border>
-                    </VerticalStackLayout>
-
-                    <Button Text="Cadastrar"
-                            BackgroundColor="#2962FF"
-                            TextColor="White"
-                            CornerRadius="25"
-                            HeightRequest="48"
-                            FontAttributes="Bold"
-                            HorizontalOptions="Fill"
-                            Margin="0,8,0,0"
-                            Clicked="OnCadastrarClicked"/>
-
-                    <HorizontalStackLayout HorizontalOptions="Center">
-                        <Label Text="Já possui cadastro? " TextColor="Gray" />
-                        <Label Text="Login" TextColor="#2962FF" FontAttributes="Bold">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnLoginClicked"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </HorizontalStackLayout>
+                <!-- Texto "BE A PRO" -->
+                <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,20,20,0">
+                    <Label Text="BE A" 
+                           FontSize="70" 
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontFamily="InstrumentSans"
+                           LineHeight="0.9"
+                           Margin="-5,-30,0,0"/>
+                    <Label Text="PRO" 
+                           FontSize="70" 
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontFamily="InstrumentSans"
+                           LineHeight="0.9"
+                           Margin="25,0,0,0"/>
                 </VerticalStackLayout>
-            </Frame>
-        </VerticalStackLayout>
-    </ScrollView>
+
+                <!-- Card Branco -->
+                <Border BackgroundColor="White"
+                        Padding="25"
+                        Margin="0,20,0,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <!-- Título Cadastro -->
+                        <Label Text="Cadastro" 
+                               FontSize="32" 
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               FontFamily="InstrumentSans"
+                               Margin="0,0,0,5"/>
+
+                        <!-- Subtítulo -->
+                        <Label Text="Crie sua conta para começar" 
+                               FontSize="13" 
+                               TextColor="#666"
+                               HorizontalOptions="Center"
+                               FontFamily="InstrumentSans"
+                               Margin="0,0,0,15"/>
+
+                        <!-- Campo Nome -->
+                        <Frame BackgroundColor="#F0F0F0" 
+                               BorderColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False">
+                            <Entry x:Name="EntryNome"
+                                   Placeholder="Digite seu nome"
+                                   FontFamily="InstrumentSans"
+                                   TextColor="Black"
+                                   PlaceholderColor="#999"
+                                   Margin="15,0"/>
+                        </Frame>
+
+                        <!-- Campo Email -->
+                        <Frame BackgroundColor="#F0F0F0" 
+                               BorderColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False">
+                            <Entry x:Name="EntryEmail"
+                                   Placeholder="Digite seu email"
+                                   FontFamily="InstrumentSans"
+                                   TextColor="Black"
+                                   PlaceholderColor="#999"
+                                   Keyboard="Email"
+                                   Margin="15,0"/>
+                        </Frame>
+
+                        <!-- Campo CPF -->
+                        <Frame BackgroundColor="#F0F0F0" 
+                               BorderColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False">
+                            <Entry x:Name="EntryCPF"
+                                   Placeholder="Digite seu CPF"
+                                   FontFamily="InstrumentSans"
+                                   TextColor="Black"
+                                   PlaceholderColor="#999"
+                                   Keyboard="Numeric"
+                                   MaxLength="11"
+                                   Margin="15,0"/>
+                        </Frame>
+
+                        <!-- Campo Senha -->
+                        <Frame BackgroundColor="#F0F0F0" 
+                               BorderColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False">
+                            <Entry x:Name="EntrySenha"
+                                   Placeholder="Digite sua senha"
+                                   FontFamily="InstrumentSans"
+                                   TextColor="Black"
+                                   PlaceholderColor="#999"
+                                   IsPassword="True"
+                                   Margin="15,0"/>
+                        </Frame>
+
+                        <!-- Campo Confirmar Senha -->
+                        <Frame BackgroundColor="#F0F0F0" 
+                               BorderColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               HasShadow="False">
+                            <Entry x:Name="EntryConfirmarSenha"
+                                   Placeholder="Confirme sua senha"
+                                   FontFamily="InstrumentSans"
+                                   TextColor="Black"
+                                   PlaceholderColor="#999"
+                                   IsPassword="True"
+                                   Margin="15,0"/>
+                        </Frame>
+
+                        <!-- Botão Cadastrar -->
+                        <Button Text="Cadastrar"
+                                BackgroundColor="#0636D4"
+                                TextColor="White"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                HeightRequest="50"
+                                CornerRadius="25"
+                                FontFamily="InstrumentSans"
+                                Margin="0,10,0,0"
+                                Clicked="OnCadastrarClicked"/>
+
+                        <!-- Link Login -->
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5" Margin="0,10,0,0">
+                            <Label Text="Já possui cadastro?" 
+                                   FontSize="13" 
+                                   TextColor="#666"
+                                   FontFamily="InstrumentSans"/>
+                            <Label Text="Login" 
+                                   FontSize="13" 
+                                   TextColor="#0636D4"
+                                   FontAttributes="Bold"
+                                   FontFamily="InstrumentSans">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLoginClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
 </ContentPage>
