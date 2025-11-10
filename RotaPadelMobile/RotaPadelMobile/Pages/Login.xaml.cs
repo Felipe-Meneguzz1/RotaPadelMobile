@@ -48,9 +48,9 @@ namespace RotaPadelMobile.Pages
             }
         }
 
-        private void OnEsqueciSenhaClicked(object sender, EventArgs e)
+        private async void OnEsqueciSenhaClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Recuperar Senha", "Funcionalidade em desenvolvimento", "OK");
+            await Navigation.PushAsync(new RecuperarSenha());
         }
 
         private async void OnCadastroClicked(object sender, EventArgs e)

@@ -21,6 +21,9 @@ namespace RotaPadelMobile
             //DatabaseService
             builder.Services.AddSingleton<DatabaseService>();
 
+            //Email Service
+            builder.Services.AddSingleton<EmailService>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
