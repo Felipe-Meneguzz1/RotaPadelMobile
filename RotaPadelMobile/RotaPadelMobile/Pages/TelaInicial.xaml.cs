@@ -1,19 +1,22 @@
-namespace RotaPadelMobile.Pages;
-
-public partial class TelaInicial : ContentPage
+namespace RotaPadelMobile.Pages
 {
-	public TelaInicial()
-	{
-		InitializeComponent();
-	}
-
-    private async void Button_Login(object sender, EventArgs e)
+    public partial class TelaInicial : ContentPage
     {
-        await Navigation.PushModalAsync(new Login());
-    }
+        public TelaInicial()
+        {
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
+        }
 
-    private async void Button_Cadastro(object sender, EventArgs e)
-    {
-        await Navigation.PushModalAsync(new Cadastro());
+        private async void Button_Login(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Login());
+        }
+
+        private async void Button_Cadastro(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Cadastro());
+        }
     }
 }

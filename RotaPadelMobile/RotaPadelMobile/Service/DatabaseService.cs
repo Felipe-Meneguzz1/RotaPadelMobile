@@ -13,7 +13,12 @@ namespace RotaPadelMobile.Services
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Usuario>().Wait();
         }
-        
+
+        // Cadastrar usuário
+        public async Task<int> CadastrarUsuario(Usuario usuario)
+        {
+            return await _database.InsertAsync(usuario);
+        }
         // Login
         public async Task<Usuario> Login(string email, string senha)
         {
