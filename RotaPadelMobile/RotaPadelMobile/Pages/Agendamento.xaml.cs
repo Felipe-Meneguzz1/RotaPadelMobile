@@ -6,4 +6,9 @@ public partial class Agendamento : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void bt_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

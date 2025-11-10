@@ -4,7 +4,8 @@
              x:Class="RotaPadelMobile.Pages.Agendamento"
              Title="Agendamento"
              BackgroundColor="#C1EE0F">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
         <Label Text="Agendamento"
                Padding="15"
                FontSize="36"
@@ -12,7 +13,7 @@
                TextColor="Black"
                FontFamily="InstrumentSans"
                HorizontalOptions="Center"/>
-
+        
         <Border BackgroundColor="White"
                 Padding="25"
                 Margin="0,20,0,0">
@@ -22,6 +23,7 @@
 
             <VerticalStackLayout Spacing="15">
                 <Label Text="Selecionar quadra"
+                       FontAttributes="Bold"
                        FontSize="18"
                        FontFamily="InstrumentSans"/>
 
@@ -36,7 +38,8 @@
                 <Label Text="Selecione a Data Desejada"
                        FontSize="18"
                        FontAttributes="Bold"
-                       Margin="0,10,0,5"/>
+                       FontFamily="InstrumentSans"
+                       Margin="0,5,0,5"/>
 
                 <DatePicker x:Name="pickerData"
                         Format="dd/MM/yyyy"
@@ -45,16 +48,85 @@
                         Margin="0,0,0,10"/>
 
                 <Border BackgroundColor="#E7F3FF"
-                        Padding="25"
-                        Margin="0,20,0,0">
+                        Padding="15"
+                        Margin="0,5,0,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    
                     <VerticalStackLayout>
                         <Label Text="Legenda dos horários"
+                               FontFamily="InstrumentSans"
                                TextColor="#17A1FA"
-                               FontSize="16"/>
+                               FontSize="16"
+                               Margin="0,0,0,5"/>
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label Text="• Verde – Disponível para reserva"
+                                   TextColor="Black"
+                                   FontFamily="InstrumentSans"
+                                   FontSize="14"/>
+
+                            <Label Text="• Cinza (Desativado) – Já ocupado por outro usuário"
+                                   TextColor="Black"
+                                   FontFamily="InstrumentSans"
+                                   FontSize="14"/>
+
+                            <Label Text="• Rosa (Passado) – Horário já passou no dia atual"
+                                   TextColor="Black"
+                                   FontFamily="InstrumentSans"
+                                   FontSize="14"/>
+
+                        </VerticalStackLayout>
+
+                       
                     </VerticalStackLayout>
                     
                 </Border>
-            </VerticalStackLayout>
+                    <VerticalStackLayout Margin="10,10,10,10" Spacing="20">
+                        <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*"
+                              RowSpacing="10" ColumnSpacing="10"  x:Name="gridManhã">
+                            <Label Text="Manhã" TextColor="Black" FontSize="20"/>
+
+                            <Button Grid.Row="1" Grid.Column="0" Text="8:00" TextColor="Black" x:Name="bt0" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="1" Grid.Column="1" Text="9:00" TextColor="Black" x:Name="bt1" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="1" Grid.Column="2" Text="10:00" TextColor="Black" x:Name="bt2" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+
+                            <Button Grid.Row="2" Grid.Column="0" Text="11:00" TextColor="Black" x:Name="bt3" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="2" Grid.Column="1" Text="12:00" TextColor="Black" x:Name="bt4" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                        </Grid>
+
+                        <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*"
+                              RowSpacing="10" ColumnSpacing="10"  x:Name="gridTarde">
+                            <Label Text="Tarde" TextColor="Black" FontSize="20"/>
+
+                            <Button Grid.Row="1" Grid.Column="0" Text="13:00" TextColor="Black" x:Name="bt5" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="1" Grid.Column="1" Text="14:00" TextColor="Black" x:Name="bt6" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="1" Grid.Column="2" Text="15:00" TextColor="Black" x:Name="bt7" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+
+                            <Button Grid.Row="2" Grid.Column="0" Text="16:00" TextColor="Black" x:Name="bt8" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="2" Grid.Column="1" Text="17:00" TextColor="Black" x:Name="bt9" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                        </Grid>
+
+                        <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*"
+                              RowSpacing="10" ColumnSpacing="10"  x:Name="gridNoite">
+                            <Label Text="Noite" TextColor="Black" FontSize="20"/>
+
+                            <Button Grid.Row="1" Grid.Column="0" Text="18:00" TextColor="Black" x:Name="bt10" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="1" Grid.Column="1" Text="19:00" TextColor="Black" x:Name="bt11" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="1" Grid.Column="2" Text="20:00" TextColor="Black" x:Name="bt12" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+
+                            <Button Grid.Row="2" Grid.Column="0" Text="21:00" TextColor="Black" x:Name="bt13" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="2" Grid.Column="1" Text="22:00" TextColor="Black" x:Name="bt14" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="2" Grid.Column="2" Text="23:00" TextColor="Black" x:Name="bt15" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
         </Border>
+        
     </VerticalStackLayout>
+
+    </ScrollView>
 </ContentPage>
