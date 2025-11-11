@@ -9,7 +9,7 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            var navigationPage = new NavigationPage(new Pages.Reservas())
+            var navigationPage = new NavigationPage(new Pages.TelaInicial())
             {
                 BarBackgroundColor = Colors.White,
                 BarTextColor = Colors.Black
