@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RotaPadelMobile.Pages.Reservas"
+             Title="Reservas"
+             BackgroundColor="#C1EE0F">
+    <VerticalStackLayout>
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+
+                <Label Text="Minhas Reservas"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   HorizontalOptions="Center"/>
+
+                <!-- Regras de Cancelamento -->
+                <Border BackgroundColor="#E7F3FF"
+                    Padding="15"
+                    Margin="0,20,0,10"
+                    StrokeShape="RoundRectangle 25">
+                    <VerticalStackLayout>
+                        <Label Text="Regras de Cancelamento"
+                           FontAttributes="Bold"
+                           FontFamily="InstrumentSans"
+                           TextColor="#17A1FA"
+                           FontSize="16"/>
+
+                        <Label Text="• Você pode cancelar reservas com pelo menos 2 horas de antecedência" 
+                           FontFamily="InstrumentSans"/>
+                        <Label Text="• Reservas que já passaram não podem ser canceladas" 
+                           FontFamily="InstrumentSans"/>
+                        <Label Text="• Apenas o dono da reserva pode cancelá-la" 
+                           FontFamily="InstrumentSans"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Mensagem se não houver reservas -->
+                <Label x:Name="lblSemReservas"
+                   Text="Você não possui nenhuma reserva no momento."
+                   FontSize="18"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   IsVisible="False"
+                   Margin="0,10,0,20"/>
+
+                <!-- Lista de Reservas -->
+                <VerticalStackLayout x:Name="stackReservas"
+                                 Spacing="10"
+                                 IsVisible="False">
+                    <!-- As reservas serão adicionadas dinamicamente -->
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
