@@ -32,7 +32,8 @@
                         BackgroundColor="White"
                         FontSize="16"
                         TextColor="Black"
-                        Margin="0,0,0,10">
+                        Margin="0,0,0,10"
+                        SelectedIndexChanged="pickerQuadra_SelectedIndexChanged">
                         
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
@@ -53,7 +54,8 @@
                         Format="dd/MM/yyyy"
                         BackgroundColor="White"
                         TextColor="Black"
-                        Margin="0,0,0,10"/>
+                        Margin="0,0,0,10"
+                        DateSelected="pickerData_DateSelected"/>
 
                 <Border BackgroundColor="#E7F3FF"
                         Padding="15"

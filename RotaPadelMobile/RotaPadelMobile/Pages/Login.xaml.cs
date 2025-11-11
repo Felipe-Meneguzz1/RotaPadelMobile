@@ -34,8 +34,8 @@ namespace RotaPadelMobile.Pages
 
                 if (usuario != null)
                 {
-                    await DisplayAlert("Sucesso", $"Bem-vindo, {usuario.Nome}!", "OK");
-                    // Navegar para tela principal
+                    // ? Passa o usuário logado para a próxima tela
+                    await Navigation.PushAsync(new Agendamento(usuario.Id));
                 }
                 else
                 {
