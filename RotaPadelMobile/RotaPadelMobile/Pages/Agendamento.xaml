@@ -27,13 +27,21 @@
                        FontSize="18"
                        FontFamily="InstrumentSans"/>
 
-                <Picker x:Name="pickerQuadra"
+                    <Picker x:Name="pickerQuadra"
                         Title="Quadra"
                         BackgroundColor="White"
                         FontSize="16"
                         TextColor="Black"
-                        Margin="0,0,0,10"
-                        />
+                        Margin="0,0,0,10">
+                        
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Quadra 1</x:String>
+                                <x:String>Quadra 2</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                        
+                    </Picker>
 
                 <Label Text="Selecione a Data Desejada"
                        FontSize="18"
@@ -87,7 +95,7 @@
                     <VerticalStackLayout Margin="10,10,10,10" Spacing="20">
                         <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*"
                               RowSpacing="10" ColumnSpacing="10"  x:Name="gridManhã">
-                            <Label Text="Manhã" TextColor="Black" FontSize="20"/>
+                            <Label Text="Manhã" FontAttributes="Bold" TextColor="Black" FontSize="20" FontFamily="InstrumentSans"/>
 
                             <Button Grid.Row="1" Grid.Column="0" Text="8:00" TextColor="Black" x:Name="bt0" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
                             <Button Grid.Row="1" Grid.Column="1" Text="9:00" TextColor="Black" x:Name="bt1" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
@@ -99,7 +107,7 @@
 
                         <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*"
                               RowSpacing="10" ColumnSpacing="10"  x:Name="gridTarde">
-                            <Label Text="Tarde" TextColor="Black" FontSize="20"/>
+                            <Label Text="Tarde" FontAttributes="Bold" TextColor="Black" FontSize="20" FontFamily="InstrumentSans"/>
 
                             <Button Grid.Row="1" Grid.Column="0" Text="13:00" TextColor="Black" x:Name="bt5" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
                             <Button Grid.Row="1" Grid.Column="1" Text="14:00" TextColor="Black" x:Name="bt6" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
@@ -111,7 +119,7 @@
 
                         <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*"
                               RowSpacing="10" ColumnSpacing="10"  x:Name="gridNoite">
-                            <Label Text="Noite" TextColor="Black" FontSize="20"/>
+                            <Label Text="Noite" FontAttributes="Bold" TextColor="Black" FontSize="20" FontFamily="InstrumentSans"/>
 
                             <Button Grid.Row="1" Grid.Column="0" Text="18:00" TextColor="Black" x:Name="bt10" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
                             <Button Grid.Row="1" Grid.Column="1" Text="19:00" TextColor="Black" x:Name="bt11" Clicked="bt_Clicked" BackgroundColor="LightGray"/>
@@ -123,7 +131,17 @@
                         </Grid>
 
                     </VerticalStackLayout>
+                    <Button Text="Confirmar" 
+                            x:Name="btConfirmar"
+                            BackgroundColor="LightGreen" 
+                            TextColor="Black" 
+                            FontAttributes="Bold" 
+                            FontSize="18" 
+                            Margin="35,0,35,0" 
+                            FontFamily="InstrumentSans"
+                            Clicked="btConfirmar_Clicked" />
                 </VerticalStackLayout>
+            
         </Border>
         
     </VerticalStackLayout>
