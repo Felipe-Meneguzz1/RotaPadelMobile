@@ -62,7 +62,7 @@
                         <Button Text="Validar Código" BackgroundColor="#0636D4" TextColor="White"
                                 FontSize="18" FontAttributes="Bold" HeightRequest="50"
                                 CornerRadius="25" FontFamily="InstrumentSans"
-                                Clicked="OnValidarCodigoClicked"/>
+                                />
                     </VerticalStackLayout>
                 </Border>
 
@@ -91,7 +91,7 @@
                         <Button Text="Alterar Senha" BackgroundColor="#0636D4" TextColor="White"
                                 FontSize="18" FontAttributes="Bold" HeightRequest="50"
                                 CornerRadius="25" FontFamily="InstrumentSans"
-                                Clicked="OnAlterarSenhaClicked"/>
+                                />
                     </VerticalStackLayout>
                 </Border>
 
