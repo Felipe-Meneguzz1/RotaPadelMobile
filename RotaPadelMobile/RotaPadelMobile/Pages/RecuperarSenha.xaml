@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RotaPadelMobile.Pages.RecuperarSenha"
+             Title="Recuperar Senha"
+             BackgroundColor="#C1EE0F">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BackgroundColor="White" Padding="20,15">
+            <Label Text="ROTA PADEL" FontSize="20" FontAttributes="Bold"
+                   TextColor="Black" FontFamily="InstrumentSans"/>
+        </Border>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <Border x:Name="Step1" BackgroundColor="White" Padding="25">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Recuperar Senha" FontSize="32" FontAttributes="Bold"
+                               TextColor="Black" HorizontalOptions="Center" FontFamily="InstrumentSans"/>
+                        <Label Text="Digite seu email para receber o código" FontSize="13"
+                               TextColor="#666" HorizontalOptions="Center" FontFamily="InstrumentSans"/>
+
+                        <Frame BackgroundColor="#F0F0F0" BorderColor="Transparent"
+                               CornerRadius="10" Padding="0" HasShadow="False">
+                            <Entry x:Name="EntryEmail" Placeholder="Digite seu email"
+                                   FontFamily="InstrumentSans" Keyboard="Email" Margin="15,0"/>
+                        </Frame>
+
+                        <Button Text="Enviar Código" BackgroundColor="#0636D4" TextColor="White"
+                                FontSize="18" FontAttributes="Bold" HeightRequest="50"
+                                CornerRadius="25" FontFamily="InstrumentSans"
+                                Clicked="OnEnviarCodigoClicked"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="Step2" BackgroundColor="White" Padding="25" IsVisible="False">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Código Enviado!" FontSize="32" FontAttributes="Bold"
+                               TextColor="Black" HorizontalOptions="Center" FontFamily="InstrumentSans"/>
+                        <Label Text="Digite o código recebido no email" FontSize="13"
+                               TextColor="#666" HorizontalOptions="Center" FontFamily="InstrumentSans"/>
+
+                        <Frame BackgroundColor="#F0F0F0" BorderColor="Transparent"
+                               CornerRadius="10" Padding="0" HasShadow="False">
+                            <Entry x:Name="EntryCodigo" Placeholder="000000"
+                                   FontFamily="InstrumentSans" Keyboard="Numeric"
+                                   MaxLength="6" Margin="15,0"/>
+                        </Frame>
+
+                        <Button Text="Validar Código" BackgroundColor="#0636D4" TextColor="White"
+                                FontSize="18" FontAttributes="Bold" HeightRequest="50"
+                                CornerRadius="25" FontFamily="InstrumentSans"
+                                Clicked="OnValidarCodigoClicked"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="Step3" BackgroundColor="White" Padding="25" IsVisible="False">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Nova Senha" FontSize="32" FontAttributes="Bold"
+                               TextColor="Black" HorizontalOptions="Center" FontFamily="InstrumentSans"/>
+                        <Label Text="Digite sua nova senha" FontSize="13"
+                               TextColor="#666" HorizontalOptions="Center" FontFamily="InstrumentSans"/>
+
+                        <Frame BackgroundColor="#F0F0F0" BorderColor="Transparent"
+                               CornerRadius="10" Padding="0" HasShadow="False">
+                            <Entry x:Name="EntryNovaSenha" Placeholder="Nova senha"
+                                   FontFamily="InstrumentSans" IsPassword="True" Margin="15,0"/>
+                        </Frame>
+
+                        <Frame BackgroundColor="#F0F0F0" BorderColor="Transparent"
+                               CornerRadius="10" Padding="0" HasShadow="False">
+                            <Entry x:Name="EntryConfirmarNovaSenha" Placeholder="Confirmar senha"
+                                   FontFamily="InstrumentSans" IsPassword="True" Margin="15,0"/>
+                        </Frame>
+
+                        <Button Text="Alterar Senha" BackgroundColor="#0636D4" TextColor="White"
+                                FontSize="18" FontAttributes="Bold" HeightRequest="50"
+                                CornerRadius="25" FontFamily="InstrumentSans"
+                                Clicked="OnAlterarSenhaClicked"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

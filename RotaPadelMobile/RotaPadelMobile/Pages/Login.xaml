@@ -77,7 +77,8 @@
                                CornerRadius="10"
                                Padding="0"
                                HasShadow="False">
-                            <Entry Placeholder="Digite seu email"
+                            <Entry x:Name="EntryEmail"
+                                   Placeholder="Digite seu email"
                                    FontFamily="InstrumentSans"
                                    TextColor="Black"
                                    PlaceholderColor="#999"
@@ -91,7 +92,8 @@
                                CornerRadius="10"
                                Padding="0"
                                HasShadow="False">
-                            <Entry Placeholder="Digite sua senha"
+                            <Entry x:Name="EntrySenha"
+                                   Placeholder="Digite sua senha"
                                    FontFamily="InstrumentSans"
                                    TextColor="Black"
                                    PlaceholderColor="#999"

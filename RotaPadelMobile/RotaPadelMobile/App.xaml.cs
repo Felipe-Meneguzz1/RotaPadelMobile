@@ -9,7 +9,13 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new Pages.TelaInicial());
+            var navigationPage = new NavigationPage(new Pages.TelaInicial())
+            {
+                BarBackgroundColor = Colors.White,
+                BarTextColor = Colors.Black
+            };
+
+            return new Window(navigationPage);
         }
     }
 }
