@@ -63,71 +63,12 @@ namespace RotaPadelMobile.Pages
                 }
                 else
                 {
-                    await DisplayAlert("Erro", "Erro ao enviar email. Tente novamente.", "OK");
+                    await DisplayAlert("Erro", "Erro ao enviar email. Não ira ser possivel enviar e-mail por conta de restriçoes do android, referente a sistemas SMTP", "OK");
                 }
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Erro", $"Erro: {ex.Message}", "OK");
-            }
-        }
-
-        private async void OnValidarCodigoClicked(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(EntryCodigo.Text))
-            {
-                await DisplayAlert("Erro", "Digite o código", "OK");
-                return;
-            }
-
-            var codigoValido = await _database.ValidarCodigo(_emailRecuperacao, EntryCodigo.Text);
-
-            if (codigoValido != null)
-            {
-                _codigoId = codigoValido.Id;
-                Step2.IsVisible = false;
-                Step3.IsVisible = true;
-            }
-            else
-            {
-                await DisplayAlert("Erro", "Código inválido ou expirado", "OK");
-            }
-        }
-
-        private async void OnAlterarSenhaClicked(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(EntryNovaSenha.Text))
-            {
-                await DisplayAlert("Erro", "Digite a nova senha", "OK");
-                return;
-            }
-
-            if (EntryNovaSenha.Text.Length < 6)
-            {
-                await DisplayAlert("Erro", "A senha deve ter no mínimo 6 caracteres", "OK");
-                return;
-            }
-
-            if (EntryNovaSenha.Text != EntryConfirmarNovaSenha.Text)
-            {
-                await DisplayAlert("Erro", "As senhas não coincidem", "OK");
-                return;
-            }
-
-            try
-            {
-                var usuario = await _database.ObterUsuarioPorEmail(_emailRecuperacao);
-                var senhaHash = PasswordHelper.HashPassword(EntryNovaSenha.Text);
-
-                await _database.AtualizarSenha(usuario.Id, senhaHash);
-                await _database.MarcarCodigoComoUsado(_codigoId);
-
-                await DisplayAlert("Sucesso", "Senha alterada com sucesso!", "OK");
-                await Navigation.PopAsync();
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Erro", $"Erro ao alterar senha: {ex.Message}", "OK");
             }
         }
     }

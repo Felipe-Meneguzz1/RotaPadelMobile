@@ -12,6 +12,7 @@ namespace RotaPadelMobile.Services
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "rotapadel.db3");
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Usuario>().Wait();
+            _database.CreateTableAsync<CodigoRecuperacao>().Wait();
         }
 
         // Cadastrar usuário
