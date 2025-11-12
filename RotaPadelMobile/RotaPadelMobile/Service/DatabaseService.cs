@@ -12,7 +12,8 @@ namespace RotaPadelMobile.Services
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "rotapadel.db3");
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Usuario>().Wait();
-            _database.CreateTableAsync<CodigoRecuperacao>().Wait();
+            _database.CreateTableAsync<Reserva>().Wait();
+
         }
 
         // Cadastrar usuário
@@ -37,35 +38,6 @@ namespace RotaPadelMobile.Services
             return usuario != null;
         }
 
-        public async Task<int> SalvarCodigoRecuperacao(CodigoRecuperacao codigo)
-        {
-            return await _database.InsertAsync(codigo);
-        }
-
-        public async Task<CodigoRecuperacao> ValidarCodigo(string email, string codigo)
-        {
-            return await _database.Table<CodigoRecuperacao>()
-                .Where(c => c.Email == email &&
-                            c.Codigo == codigo &&
-                            !c.Usado &&
-                            c.DataExpiracao > DateTime.Now)
-                .FirstOrDefaultAsync();
-        }
-
-        public async Task<int> MarcarCodigoComoUsado(int codigoId)
-        {
-            var codigo = await _database.Table<CodigoRecuperacao>()
-                .Where(c => c.Id == codigoId)
-                .FirstOrDefaultAsync();
-
-            if (codigo != null)
-            {
-                codigo.Usado = true;
-                return await _database.UpdateAsync(codigo);
-            }
-            return 0;
-        }
-
         public async Task<Usuario> ObterUsuarioPorEmail(string email)
         {
             return await _database.Table<Usuario>()
@@ -85,6 +57,28 @@ namespace RotaPadelMobile.Services
                 return await _database.UpdateAsync(usuario);
             }
             return 0;
+        }
+
+        // Registrar agendamento
+        public async Task<int> CadastrarReserva(Reserva reserva)
+        {
+            return await _database.InsertAsync(reserva);
+        }
+
+        public async Task<List<Reserva>> ObterAgendamentosPorDataEQuadra(DateTime data, string quadra)
+        {
+            return await _database.Table<Reserva>()
+                .Where(r => r.Data == data && r.Quadra == quadra)
+                .ToListAsync();
+        }
+
+        public async Task<bool> HorarioOcupado(string quadra, DateTime data, string hora)
+        {
+            var reserva = await _database.Table<Reserva>()
+                .Where(r => r.Quadra == quadra && r.Data == data && r.Hora == hora)
+                .FirstOrDefaultAsync();
+
+            return reserva != null;
         }
     }
 }

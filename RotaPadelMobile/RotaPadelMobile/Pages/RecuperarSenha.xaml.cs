@@ -19,19 +19,8 @@ namespace RotaPadelMobile.Pages
 
         private async void OnEnviarCodigoClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(EntryEmail.Text))
-            {
-                await DisplayAlert("Erro", "Erro ao enviar email. Não ira ser possivel enviar e-mail por conta de restriçoes do android, referente a sistemas SMTP", "OK");
-                return;
-            }
-
-            // Verificar se o email existe
-            var usuario = await _database.ObterUsuarioPorEmail(EntryEmail.Text.Trim().ToLower());
-            if (usuario == null)
-            {
-                await DisplayAlert("Erro", "Erro ao enviar email. Não ira ser possivel enviar e-mail por conta de restriçoes do android, referente a sistemas SMTP", "OK");
-                return;
-            }
+            await DisplayAlert("Erro", "Erro ao enviar email. Não ira ser possivel enviar e-mail por conta de restriçoes do android, referente a sistemas SMTP", "OK");
+            return;
         }
     }
             
