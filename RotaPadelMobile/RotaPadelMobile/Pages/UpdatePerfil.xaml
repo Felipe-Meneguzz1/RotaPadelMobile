@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RotaPadelMobile.Pages.UpdatePerfil"
+             BackgroundColor="#C1EE0F"
+             >
+
+    <Grid RowDefinitions="*, Auto">
+        <!-- conteúdo e barra -->
+
+        <!-- Conteúdo principal -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Conteúdo -->
+                    <ScrollView Grid.Row="1">
+                        <VerticalStackLayout Padding="20" Spacing="30">
+
+                            <!-- Título -->
+                            <VerticalStackLayout Spacing="-10" HorizontalOptions="End" Margin="0,20,20,0">
+                                <Label Text="Atualizar"
+                       FontSize="60"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontFamily="InstrumentSans"
+                       Margin="-5,-30,0,0"/>
+                                <Label Text="Perfil"
+                       FontSize="60"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontFamily="InstrumentSans"
+                       Margin="25,0,0,0"/>
+                            </VerticalStackLayout>
+
+                            <!-- Card Branco -->
+                            <Border BackgroundColor="White"
+                    Padding="25"
+                    Margin="0,20,0,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="25"/>
+                                </Border.StrokeShape>
+
+                                <VerticalStackLayout Spacing="15">
+
+                                    <Label Text="Atualizar Dados"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           FontFamily="InstrumentSans"/>
+
+                                    <Label Text="Edite suas informações abaixo"
+                           FontSize="13"
+                           TextColor="#666"
+                           HorizontalOptions="Center"
+                           FontFamily="InstrumentSans"
+                           Margin="0,0,0,15"/>
+
+                                    <!-- Campo Nome -->
+                                    <Frame BackgroundColor="#F0F0F0"
+                           CornerRadius="10"
+                           Padding="0"
+                           HasShadow="False">
+                                        <Entry x:Name="EntryNome"
+                               Placeholder="Nome"
+                               FontFamily="InstrumentSans"
+                               TextColor="Black"
+                               Margin="15,0"/>
+                                    </Frame>
+
+                                    <!-- Campo Email -->
+                                    <Frame BackgroundColor="#F0F0F0"
+                           CornerRadius="10"
+                           Padding="0"
+                           HasShadow="False">
+                                        <Entry x:Name="EntryEmail"
+                               Placeholder="Email"
+                               FontFamily="InstrumentSans"
+                               TextColor="Black"
+                               Margin="15,0"
+                               IsEnabled="False"/>
+                                        <!-- Email não deve ser alterado -->
+                                    </Frame>
+
+                                    <!-- Campo CPF -->
+                                    <Frame BackgroundColor="#F0F0F0"
+                           CornerRadius="10"
+                           Padding="0"
+                           HasShadow="False">
+                                        <Entry x:Name="EntryCPF"
+                               Placeholder="CPF"
+                               FontFamily="InstrumentSans"
+                               TextColor="Black"
+                               Margin="15,0"
+                               Keyboard="Numeric"
+                               IsEnabled="False"/>
+                                        <!-- Mantido apenas para exibição -->
+                                    </Frame>
+
+                                    <!-- Campo Senha -->
+                                    <Frame BackgroundColor="#F0F0F0"
+                           CornerRadius="10"
+                           Padding="0"
+                           HasShadow="False">
+                                        <Entry x:Name="EntrySenha"
+                               Placeholder="Nova senha (opcional)"
+                               FontFamily="InstrumentSans"
+                               TextColor="Black"
+                               Margin="15,0"
+                               IsPassword="True"/>
+                                    </Frame>
+
+                                    <!-- Botão Atualizar -->
+                                    <Button Text="Salvar Alterações"
+                            BackgroundColor="LightGreen"
+                            TextColor="Black"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            HeightRequest="50"
+                            CornerRadius="25"
+                            FontFamily="InstrumentSans"
+                            Margin="0,10,0,0"
+                            
+                            Clicked="Button_Clicked"/>
+
+                                </VerticalStackLayout>
+                            </Border>
+
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Navbar fixa -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*" BackgroundColor="#004D40" Padding="10">
+            <Button Text="Agendar"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    Clicked="Button_Clicked_3"/>
+            <Button Text="Reservas"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    Clicked="Button_Clicked_2"/>
+            <Button Text="Logout"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    Clicked="Button_Clicked_1"/>
+        </Grid>
+    </Grid>
+    
+    
+</ContentPage>
