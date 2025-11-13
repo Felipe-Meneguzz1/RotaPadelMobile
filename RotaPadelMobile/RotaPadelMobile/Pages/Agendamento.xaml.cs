@@ -9,16 +9,27 @@ namespace RotaPadelMobile.Pages
         private readonly int _usuarioId;
         private readonly List<Button> botoesSelecionados = new();
 
+        // Construtor VAZIO para o Shell
+        public Agendamento()
+        {
+            InitializeComponent();
+            _database = new DatabaseService();
+            _usuarioId = UsuarioLogado.Id; // Pega o ID do usuário logado
+
+            pickerData.DateSelected += pickerData_DateSelected;
+            pickerQuadra.SelectedIndexChanged += pickerQuadra_SelectedIndexChanged;
+            AtualizarDisponibilidade();
+        }
+
+        // Mantenha o construtor com parâmetro também (para caso precise chamar direto)
         public Agendamento(int usuarioId)
         {
             InitializeComponent();
             _usuarioId = usuarioId;
             _database = new DatabaseService();
 
-            // Atualiza disponibilidade ao mudar a data ou a quadra
             pickerData.DateSelected += pickerData_DateSelected;
             pickerQuadra.SelectedIndexChanged += pickerQuadra_SelectedIndexChanged;
-
             AtualizarDisponibilidade();
         }
 

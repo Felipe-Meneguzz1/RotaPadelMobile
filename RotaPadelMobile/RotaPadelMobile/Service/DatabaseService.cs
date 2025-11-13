@@ -80,5 +80,52 @@ namespace RotaPadelMobile.Services
 
             return reserva != null;
         }
+
+        public Task<List<Reserva>> ObterReservasPorUsuarioAsync(int usuarioId)
+        {
+            return _database.Table<Reserva>()
+                .Where(r => r.UsuarioId == usuarioId)
+                .ToListAsync();
+        }
+
+        public Task<int> DeletarReservaAsync(int id)
+        {
+            return _database.DeleteAsync<Reserva>(id);
+        }
+
+        // Métodos para Minhas Reservas
+        public async Task<List<Reserva>> ObterReservasPorUsuario(int usuarioId)
+        {
+            return await _database.Table<Reserva>()
+                .Where(r => r.UsuarioId == usuarioId)
+                .OrderBy(r => r.Data)
+                .ThenBy(r => r.Hora)
+                .ToListAsync();
+        }
+
+        public async Task<int> CancelarReserva(int reservaId)
+        {
+            return await _database.DeleteAsync<Reserva>(reservaId);
+        }
+
+        public bool PodeCancelar(Reserva reserva)
+        {
+            // Combina data + hora para verificar
+            var horaReserva = TimeSpan.Parse(reserva.Hora);
+            var dataHoraReserva = reserva.Data.Date + horaReserva;
+
+            // Só pode cancelar se:
+            // 1. Ainda não passou
+            // 2. Faltam mais de 2 horas
+            return dataHoraReserva > DateTime.Now &&
+                   dataHoraReserva > DateTime.Now.AddHours(2);
+        }
+
+        public bool JaPassou(Reserva reserva)
+        {
+            var horaReserva = TimeSpan.Parse(reserva.Hora);
+            var dataHoraReserva = reserva.Data.Date + horaReserva;
+            return dataHoraReserva < DateTime.Now;
+        }
     }
 }

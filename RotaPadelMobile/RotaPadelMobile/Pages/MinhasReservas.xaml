@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RotaPadelMobile.Pages.MinhasReservas"
+             Title="Minhas Reservas"
+             BackgroundColor="#C1EE0F">
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label Text="Minhas Reservas"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,20"/>
+
+            <!-- Regras de Cancelamento -->
+            <Border BackgroundColor="#E7F3FF"
+                    Padding="15"
+                    Margin="0,0,0,20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Regras de Cancelamento"
+                           FontAttributes="Bold"
+                           FontFamily="InstrumentSans"
+                           TextColor="#17A1FA"
+                           FontSize="16"/>
+                    <Label Text="• Você pode cancelar reservas com pelo menos 2 horas de antecedência" 
+                           FontFamily="InstrumentSans"
+                           FontSize="13"
+                           TextColor="Black"/>
+                    <Label Text="• Reservas que já passaram não podem ser canceladas" 
+                           FontFamily="InstrumentSans"
+                           FontSize="13"
+                           TextColor="Black"/>
+                    <Label Text="• Apenas o dono da reserva pode cancelá-la" 
+                           FontFamily="InstrumentSans"
+                           FontSize="13"
+                           TextColor="Black"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Mensagem se não houver reservas -->
+            <Border x:Name="BorderSemReservas"
+                    BackgroundColor="White"
+                    Padding="30"
+                    IsVisible="False">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                    <Label
+                           FontSize="60"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Você não possui nenhuma reserva"
+                           FontSize="18"
+                           FontAttributes="Italic"
+                           HorizontalOptions="Center"
+                           TextColor="#666"
+                           FontFamily="InstrumentSans"/>
+                    <Label Text="Faça sua primeira reserva!"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           TextColor="#999"
+                           FontFamily="InstrumentSans"/>
+                </VerticalStackLayout>
+            </Border>
+
+
+            <VerticalStackLayout x:Name="StackReservas"
+                                 Spacing="15"
+                                 IsVisible="False">
+                <!-- reservas dinamicamente -->
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

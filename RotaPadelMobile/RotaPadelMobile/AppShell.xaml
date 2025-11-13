@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="RotaPadelMobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:RotaPadelMobile.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="#0636D4"
+    Shell.TabBarUnselectedColor="#999"
+    Shell.TabBarTitleColor="Black">
+
+    <TabBar>
+        <!-- Agendamento -->
+        <ShellContent
+            Title="Agendar"
+            ContentTemplate="{DataTemplate local:Agendamento}"
+            Route="agendamento">
+            <ShellContent.Icon>
+                <FontImageSource 
+                    Glyph="📅"
+                    Color="#0636D4"
+                    Size="30"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <!-- Minhas Reservas -->
+        <ShellContent
+            Title="Reservas"
+            ContentTemplate="{DataTemplate local:MinhasReservas}"
+            Route="minhasreservas">
+            <ShellContent.Icon>
+                <FontImageSource 
+                    Glyph="📋"
+                    Color="#0636D4"
+                    Size="30"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <!-- Perfil -->
+        <ShellContent
+            Title="Perfil"
+            ContentTemplate="{DataTemplate local:Perfil}"
+            Route="perfil">
+            <ShellContent.Icon>
+                <FontImageSource 
+                    Glyph="👤"
+                    Color="#0636D4"
+                    Size="30"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+    </TabBar>
+
+</Shell>

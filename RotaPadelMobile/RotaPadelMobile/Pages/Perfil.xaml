@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RotaPadelMobile.Pages.Perfil"
+             Title="Perfil"
+             BackgroundColor="#C1EE0F">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Meu Perfil"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,20"/>
+
+            <!-- Card do Usuário -->
+            <Border BackgroundColor="White" Padding="25">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="20">
+
+                    <!-- Avatar -->
+                   <!-- <Border BackgroundColor="#0636D4"
+                            WidthRequest="100"
+                            HeightRequest="100"
+                            HorizontalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="50"/>
+                        </Border.StrokeShape>
+                        <Label Text="👤"
+                               FontSize="50"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Border> -->
+
+                    <!-- Nome -->
+                    <Label x:Name="LabelNome"
+                           Text="Nome do Usuário"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontFamily="InstrumentSans"
+                           HorizontalOptions="Center"/>
+
+                    <!-- Email -->
+                    <Label x:Name="LabelEmail"
+                           Text="email@exemplo.com"
+                           FontSize="16"
+                           TextColor="#666"
+                           FontFamily="InstrumentSans"
+                           HorizontalOptions="Center"/>
+
+                    <!-- Divisor -->
+                    <BoxView HeightRequest="1" 
+                             BackgroundColor="#E0E0E0" 
+                             Margin="0,10,0,10"/>
+
+                    <!-- Opções -->
+                    <Button Text="Editar Perfil"
+                            BackgroundColor="#0636D4"
+                            TextColor="White"
+                            FontFamily="InstrumentSans"
+                            FontAttributes="Bold"
+                            CornerRadius="20"
+                            HeightRequest="45"
+                            Clicked="OnEditarPerfilClicked"/>
+
+                    <Button Text="Alterar Senha"
+                            BackgroundColor="White"
+                            TextColor="#0636D4"
+                            BorderColor="#0636D4"
+                            BorderWidth="2"
+                            FontFamily="InstrumentSans"
+                            FontAttributes="Bold"
+                            CornerRadius="20"
+                            HeightRequest="45"
+                            Clicked="OnAlterarSenhaClicked"/>
+
+                    <Button Text="Sair"
+                            BackgroundColor="#FF6B6B"
+                            TextColor="White"
+                            FontFamily="InstrumentSans"
+                            FontAttributes="Bold"
+                            CornerRadius="20"
+                            HeightRequest="45"
+                            Margin="0,10,0,0"
+                            Clicked="OnSairClicked"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
