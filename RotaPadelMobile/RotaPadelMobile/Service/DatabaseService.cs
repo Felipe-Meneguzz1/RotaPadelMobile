@@ -15,21 +15,16 @@ namespace RotaPadelMobile.Services
             _database.CreateTableAsync<Reserva>().Wait();
 
         }
-
-        // Cadastrar usuário
         public async Task<int> CadastrarUsuario(Usuario usuario)
         {
             return await _database.InsertAsync(usuario);
         }
-        // Login
         public async Task<Usuario> Login(string email, string senha)
         {
             return await _database.Table<Usuario>()
                 .Where(u => u.Email == email && u.Senha == senha)
                 .FirstOrDefaultAsync();
         }
-
-        // Verificar email
         public async Task<bool> EmailExiste(string email)
         {
             var usuario = await _database.Table<Usuario>()
@@ -58,8 +53,6 @@ namespace RotaPadelMobile.Services
             }
             return 0;
         }
-
-        // Registrar agendamento
         public async Task<int> CadastrarReserva(Reserva reserva)
         {
             return await _database.InsertAsync(reserva);
@@ -92,8 +85,6 @@ namespace RotaPadelMobile.Services
         {
             return _database.DeleteAsync<Reserva>(id);
         }
-
-        // Métodos para Minhas Reservas
         public async Task<List<Reserva>> ObterReservasPorUsuario(int usuarioId)
         {
             return await _database.Table<Reserva>()
@@ -110,13 +101,8 @@ namespace RotaPadelMobile.Services
 
         public bool PodeCancelar(Reserva reserva)
         {
-            // Combina data + hora para verificar
             var horaReserva = TimeSpan.Parse(reserva.Hora);
             var dataHoraReserva = reserva.Data.Date + horaReserva;
-
-            // Só pode cancelar se:
-            // 1. Ainda não passou
-            // 2. Faltam mais de 2 horas
             return dataHoraReserva > DateTime.Now &&
                    dataHoraReserva > DateTime.Now.AddHours(2);
         }
@@ -126,6 +112,25 @@ namespace RotaPadelMobile.Services
             var horaReserva = TimeSpan.Parse(reserva.Hora);
             var dataHoraReserva = reserva.Data.Date + horaReserva;
             return dataHoraReserva < DateTime.Now;
+        }
+        public async Task<int> AtualizarUsuario(Usuario usuario)
+        {
+            return await _database.UpdateAsync(usuario);
+        }
+
+        public async Task<Usuario> ObterUsuarioPorId(int id)
+        {
+            return await _database.Table<Usuario>()
+                .Where(u => u.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> EmailJaExiste(string email, int usuarioIdAtual)
+        {
+            var usuario = await _database.Table<Usuario>()
+                .Where(u => u.Email == email && u.Id != usuarioIdAtual)
+                .FirstOrDefaultAsync();
+            return usuario != null;
         }
     }
 }

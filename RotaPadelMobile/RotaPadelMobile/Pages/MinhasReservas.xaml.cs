@@ -31,10 +31,8 @@ namespace RotaPadelMobile.Pages
         {
             try
             {
-                // Limpar lista
                 StackReservas.Children.Clear();
 
-                // Buscar reservas do usuário
                 var reservas = await _database.ObterReservasPorUsuario(_usuarioId);
 
                 if (reservas == null || reservas.Count == 0)
@@ -47,11 +45,9 @@ namespace RotaPadelMobile.Pages
                 BorderSemReservas.IsVisible = false;
                 StackReservas.IsVisible = true;
 
-                // Separar reservas futuras e passadas
                 var reservasFuturas = reservas.Where(r => !_database.JaPassou(r)).ToList();
                 var reservasPassadas = reservas.Where(r => _database.JaPassou(r)).ToList();
 
-                // Adicionar seção de reservas futuras
                 if (reservasFuturas.Any())
                 {
                     var labelFuturas = new Label
@@ -71,8 +67,6 @@ namespace RotaPadelMobile.Pages
                         StackReservas.Children.Add(card);
                     }
                 }
-
-                // Adicionar seção de reservas passadas
                 if (reservasPassadas.Any())
                 {
                     var labelPassadas = new Label
@@ -115,8 +109,6 @@ namespace RotaPadelMobile.Pages
             card.StrokeShape = new RoundRectangle { CornerRadius = 20 };
 
             var stack = new VerticalStackLayout { Spacing = 8 };
-
-            // Nome da quadra
             stack.Children.Add(new Label
             {
                 Text = reserva.Quadra,
@@ -125,8 +117,6 @@ namespace RotaPadelMobile.Pages
                 TextColor = Colors.Black,
                 FontFamily = "InstrumentSans"
             });
-
-            // Data
             stack.Children.Add(new Label
             {
                 Text = $"Data: {reserva.Data:dd/MM/yyyy}",
@@ -134,8 +124,6 @@ namespace RotaPadelMobile.Pages
                 TextColor = Colors.Black,
                 FontFamily = "InstrumentSans"
             });
-
-            // Horário
             stack.Children.Add(new Label
             {
                 Text = $"Horário: {reserva.Hora}",
@@ -143,8 +131,6 @@ namespace RotaPadelMobile.Pages
                 TextColor = Colors.Black,
                 FontFamily = "InstrumentSans"
             });
-
-            // Tempo restante ou status
             if (jaPassou)
             {
                 stack.Children.Add(new Label
@@ -190,8 +176,6 @@ namespace RotaPadelMobile.Pages
                     Margin = new Thickness(0, 5, 0, 0)
                 });
             }
-
-            // Aviso se não pode cancelar (mas ainda não passou)
             if (!podeCancelar && !jaPassou)
             {
                 stack.Children.Add(new Label
@@ -204,8 +188,6 @@ namespace RotaPadelMobile.Pages
                     Margin = new Thickness(0, 5, 0, 0)
                 });
             }
-
-            // Botão cancelar (só aparece se pode cancelar)
             if (podeCancelar)
             {
                 var btnCancelar = new Button

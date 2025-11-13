@@ -13,8 +13,6 @@
                    FontFamily="InstrumentSans"
                    HorizontalOptions="Center"
                    Margin="0,0,0,20"/>
-
-            <!-- Regras de Cancelamento -->
             <Border BackgroundColor="#E7F3FF"
                     Padding="15"
                     Margin="0,0,0,20">
@@ -41,8 +39,6 @@
                            TextColor="Black"/>
                 </VerticalStackLayout>
             </Border>
-
-            <!-- Mensagem se não houver reservas -->
             <Border x:Name="BorderSemReservas"
                     BackgroundColor="White"
                     Padding="30"

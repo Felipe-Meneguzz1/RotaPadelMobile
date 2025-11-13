@@ -34,13 +34,11 @@ namespace RotaPadelMobile.Pages
 
                 if (usuario != null)
                 {
-                    // Salvar usuário logado
                     UsuarioLogado.Id = usuario.Id;
                     UsuarioLogado.Nome = usuario.Nome;
                     UsuarioLogado.Email = usuario.Email;
                     UsuarioLogado.Perfil = usuario.Perfil;
 
-                    // Navegar para o AppShell (navbar)
                     Application.Current.MainPage = new AppShell();
                 }
                 else

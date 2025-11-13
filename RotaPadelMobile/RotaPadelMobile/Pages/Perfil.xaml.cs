@@ -26,12 +26,12 @@ namespace RotaPadelMobile.Pages
 
         private async void OnEditarPerfilClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Em Desenvolvimento", "Funcionalidade em desenvolvimento", "OK");
+            await Navigation.PushAsync(new EditarPerfil());
         }
 
         private async void OnAlterarSenhaClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Em Desenvolvimento", "Funcionalidade em desenvolvimento", "OK");
+            await Navigation.PushAsync(new AlterarSenha());
         }
 
         private async void OnSairClicked(object sender, EventArgs e)
