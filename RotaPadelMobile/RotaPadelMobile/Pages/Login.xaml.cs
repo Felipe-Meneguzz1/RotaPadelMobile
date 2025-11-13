@@ -34,8 +34,12 @@ namespace RotaPadelMobile.Pages
 
                 if (usuario != null)
                 {
-                    // ? Passa o usuário logado para a próxima tela
-                    await Navigation.PushAsync(new Agendamento(usuario.Id));
+                    UsuarioLogado.Id = usuario.Id;
+                    UsuarioLogado.Nome = usuario.Nome;
+                    UsuarioLogado.Email = usuario.Email;
+                    UsuarioLogado.Perfil = usuario.Perfil;
+
+                    Application.Current.MainPage = new AppShell();
                 }
                 else
                 {
@@ -47,7 +51,6 @@ namespace RotaPadelMobile.Pages
                 await DisplayAlert("Erro", $"Erro ao fazer login: {ex.Message}", "OK");
             }
         }
-
         private async void OnEsqueciSenhaClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RecuperarSenha());

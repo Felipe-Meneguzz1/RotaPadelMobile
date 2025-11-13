@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RotaPadelMobile.Pages.EditarPerfil"
+             Title="Editar Perfil"
+             BackgroundColor="#C1EE0F">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Editar Perfil"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontFamily="InstrumentSans"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,20"/>
+
+            <Border BackgroundColor="White" Padding="25">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label Text="Informações Pessoais"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontFamily="InstrumentSans"
+                           Margin="0,0,0,10"/>
+                    <Label Text="Nome completo"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontFamily="InstrumentSans"/>
+                    <Border BackgroundColor="#F0F0F0" StrokeThickness="0" Padding="15,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Entry x:Name="EntryNome"
+                               Placeholder="Digite seu nome"
+                               FontFamily="InstrumentSans"
+                               TextColor="Black"
+                               PlaceholderColor="#999"
+                               Margin="0"/>
+                    </Border>
+                    <Label Text="Email"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontFamily="InstrumentSans"
+                           Margin="0,10,0,0"/>
+                    <Border BackgroundColor="#F0F0F0" StrokeThickness="0" Padding="15,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Entry x:Name="EntryEmail"
+                               Placeholder="Digite seu email"
+                               FontFamily="InstrumentSans"
+                               TextColor="Black"
+                               PlaceholderColor="#999"
+                               Keyboard="Email"
+                               Margin="0"/>
+                    </Border>
+                    <Label Text="CPF"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontFamily="InstrumentSans"
+                           Margin="0,10,0,0"/>
+                    <Border BackgroundColor="#E0E0E0" StrokeThickness="0" Padding="15,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Entry x:Name="EntryCPF"
+                               IsReadOnly="True"
+                               FontFamily="InstrumentSans"
+                               TextColor="#666"
+                               Margin="0"/>
+                    </Border>
+                    <Label Text="O CPF não pode ser alterado"
+                           FontSize="12"
+                           TextColor="#999"
+                           FontFamily="InstrumentSans"
+                           Margin="0,-10,0,0"/>
+                    <Button Text="Salvar Alterações"
+                            BackgroundColor="#00C853"
+                            TextColor="White"
+                            FontFamily="InstrumentSans"
+                            FontAttributes="Bold"
+                            CornerRadius="20"
+                            HeightRequest="50"
+                            Margin="0,20,0,0"
+                            Clicked="OnSalvarClicked"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

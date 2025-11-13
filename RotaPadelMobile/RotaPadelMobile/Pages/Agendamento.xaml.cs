@@ -9,20 +9,26 @@ namespace RotaPadelMobile.Pages
         private readonly int _usuarioId;
         private readonly List<Button> botoesSelecionados = new();
 
+        public Agendamento()
+        {
+            InitializeComponent();
+            _database = new DatabaseService();
+            _usuarioId = UsuarioLogado.Id;
+
+            pickerData.DateSelected += pickerData_DateSelected;
+            pickerQuadra.SelectedIndexChanged += pickerQuadra_SelectedIndexChanged;
+            AtualizarDisponibilidade();
+        }
         public Agendamento(int usuarioId)
         {
             InitializeComponent();
             _usuarioId = usuarioId;
             _database = new DatabaseService();
 
-            // Atualiza disponibilidade ao mudar a data ou a quadra
             pickerData.DateSelected += pickerData_DateSelected;
             pickerQuadra.SelectedIndexChanged += pickerQuadra_SelectedIndexChanged;
-
             AtualizarDisponibilidade();
         }
-
-        // Atualiza cores dos horários conforme disponibilidade
         private async void AtualizarDisponibilidade()
         {
             if (pickerQuadra.SelectedItem == null)
@@ -33,7 +39,6 @@ namespace RotaPadelMobile.Pages
 
             var agendamentos = await _database.ObterAgendamentosPorDataEQuadra(data, quadra);
 
-            // Pega todos os botões de horário das grids
             var botoes = gridManhã.Children
                 .Concat(gridTarde.Children)
                 .Concat(gridNoite.Children)
@@ -45,40 +50,30 @@ namespace RotaPadelMobile.Pages
                 botao.IsEnabled = true;
                 botao.TextColor = Colors.Black;
 
-                // Cinza claro = disponível
                 botao.BackgroundColor = Colors.LightGray;
-
-                // Se horário estiver ocupado
                 if (agendamentos.Any(a => a.Hora == botao.Text))
                 {
                     botao.BackgroundColor = Colors.DarkGray;
                     botao.IsEnabled = false;
                 }
-                // Se for um horário passado no dia atual
                 else if (data == DateTime.Today && TimeSpan.Parse(botao.Text) < DateTime.Now.TimeOfDay)
                 {
                     botao.BackgroundColor = Colors.LightPink;
                     botao.IsEnabled = false;
                 }
             }
-
-            // Limpa seleções anteriores
             botoesSelecionados.Clear();
         }
-
-        // Clicar em um horário (selecionar/deselecionar)
         private void bt_Clicked(object sender, EventArgs e)
         {
             var botaoClicado = (Button)sender;
-
-            // Se já está selecionado → desmarca
             if (botoesSelecionados.Contains(botaoClicado))
             {
                 botoesSelecionados.Remove(botaoClicado);
                 botaoClicado.BackgroundColor = Colors.LightGray;
                 botaoClicado.TextColor = Colors.Black;
             }
-            else // Seleciona
+            else 
             {
                 botoesSelecionados.Add(botaoClicado);
                 botaoClicado.BackgroundColor = Color.FromArgb("#90EE90"); // Verde claro
@@ -86,7 +81,6 @@ namespace RotaPadelMobile.Pages
             }
         }
 
-        // Confirmar reserva
         private async void btConfirmar_Clicked(object sender, EventArgs e)
         {
             if (pickerQuadra.SelectedItem == null)
@@ -108,7 +102,6 @@ namespace RotaPadelMobile.Pages
 
             foreach (var botao in botoesSelecionados)
             {
-                // Garante que o horário ainda está disponível
                 if (await _database.HorarioOcupado(quadra, data, botao.Text))
                     continue;
 
